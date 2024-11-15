@@ -14,7 +14,6 @@ export default function InputField({
     type: "",
   };
 
-  // const [data, setData] = useState({ ...item });
   const [data, setData] = useState(defaultItem);
 
   // Handle manual reset of data if edit mode changes or itemToEdit changes
@@ -22,12 +21,6 @@ export default function InputField({
   if (isEdit && itemToEdit && data.id !== itemToEdit.id) {
     setData(itemToEdit);
   }
-
-  /*   function handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    setData({ ...data, [name]: value, id: crypto.randomUUID(), type: type });
-  } */
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -39,20 +32,11 @@ export default function InputField({
     }));
   }
 
-  /* 
-  function handleSave(e) {
-    e.preventDefault();
-    handleSaveItems(data);
-    setData(item);
-  } */
-
   function handleSave(e) {
     e.preventDefault();
     handleSaveItems(data);
     setData(defaultItem); // Reset form after saving
   }
-  // if (isEdit) setData(itemToEdit);
-  // console.log(isEdit, itemToEdit);
 
   return (
     <form>
