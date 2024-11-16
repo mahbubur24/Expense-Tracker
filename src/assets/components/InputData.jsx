@@ -87,6 +87,7 @@ function InputDataView({
         </div>
 
         <InputField
+          key={crypto.randomUUID()}
           category={categoryData}
           type={type}
           handleSaveItems={handleSaveItems}
