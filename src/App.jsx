@@ -9,9 +9,30 @@ function App() {
   const [itemToEdit, setItemToEdit] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
 
+  function itemToSave(itemList, newItem) {
+    return itemList.map((item) => {
+      if (item.id === newItem.id) {
+        return newItem;
+      } else {
+        return item;
+      }
+    });
+  }
+
   function handleSaveItems(newitem) {
-    if (newitem.type === "Expense") setExpenseItems([...expenseItems, newitem]);
-    else setIncomeItems([...incomeItems, newitem]);
+    if (newitem.type === "Expense") {
+      if (!isEdit) setExpenseItems([...expenseItems, newitem]);
+      else setExpenseItems(itemToSave(expenseItems, newitem));
+
+      setIsEdit(false);
+      setItemToEdit(null);
+    } else {
+      if (!isEdit) setIncomeItems([...incomeItems, newitem]);
+      else setIncomeItems(itemToSave(incomeItems, newitem));
+
+      setIsEdit(false);
+      setItemToEdit(null);
+    }
   }
 
   function handleEditItem(item) {

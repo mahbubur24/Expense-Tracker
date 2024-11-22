@@ -10,7 +10,7 @@ export default function FilterIcon() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-adjustments-alt"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-adjustments-alt"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M4 8h4v4h-4z" />
